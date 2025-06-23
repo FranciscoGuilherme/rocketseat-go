@@ -3,9 +3,15 @@ package main
 import (
 	"fmt"
 	"MyModule/funcoes"
+	"MyModule/variaveis"
 )
 
 func main() {
+	//sobreFuncoes()
+	sobreVariaveis()
+}
+
+func sobreFuncoes() {
 	primeiro := 10
 	segundo := 20
 	divisao, resto := funcoes.FuncaoRetornos(10, 3)
@@ -19,4 +25,8 @@ func main() {
 	fmt.Println("Soma com função", funcoes.FuncaoSomar(primeiro, segundo))
 	fmt.Println("Soma com função closure =", funcoes.FuncaoClosure(10)(5))
 	fmt.Println("Soma com função variática =", funcoes.FuncaoVariatica(1, 2, 3))
+}
+
+func sobreVariaveis() {
+	variaveis.Exemplo()
 }
