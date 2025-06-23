@@ -4,11 +4,13 @@ import (
 	"fmt"
 	"MyModule/funcoes"
 	"MyModule/variaveis"
+	"MyModule/variaveis/tipos"
 )
 
 func main() {
 	//sobreFuncoes()
-	sobreVariaveis()
+	//sobreVariaveis()
+	sobreTipos()
 }
 
 func sobreFuncoes() {
@@ -29,4 +31,12 @@ func sobreFuncoes() {
 
 func sobreVariaveis() {
 	variaveis.Exemplo()
+}
+
+func sobreTipos() {
+	numero, converteNumero := tipos.TipoConversao()
+
+	fmt.Println("Bool:", tipos.TipoBool())
+	fmt.Println("Número:", numero)
+	fmt.Println("Número convertido para float64:", converteNumero)
 }
