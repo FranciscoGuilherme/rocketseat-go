@@ -30,7 +30,10 @@ func sobreFuncoes() {
 }
 
 func sobreVariaveis() {
-	variaveis.Exemplo()
+	var nome, sobrenome, cidade, endereco string = variaveis.Variaveis()
+
+	fmt.Println("Nome:", nome, "Sobrenome:", sobrenome)
+	fmt.Println("Cidade:", cidade, "Endereço:", endereco)
 }
 
 func sobreTipos() {
