@@ -1,0 +1,9 @@
+{
+  "conventionalCommits.scopes": [
+    "docs",
+    "tests",
+    "config",
+    "domain",
+    "project"
+  ]
+}
