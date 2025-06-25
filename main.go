@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	//sobreFuncoes()
-	//sobreVariaveis()
+	sobreFuncoes()
+	sobreVariaveis()
 	sobreTipos()
 }
 
@@ -38,8 +38,11 @@ func sobreVariaveis() {
 
 func sobreTipos() {
 	numero, converteNumero := tipos.TipoConversao()
+	arr, another := tipos.ManipulaArray()
 
 	fmt.Println("Bool:", tipos.TipoBool())
 	fmt.Println("Número:", numero)
 	fmt.Println("Número convertido para float64:", converteNumero)
+	fmt.Println("Array:", arr)
+	fmt.Println("Outro Array:", another)
 }
