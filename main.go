@@ -5,6 +5,7 @@ import (
 	"MyModule/loops"
 	"MyModule/funcoes"
 	"MyModule/variaveis"
+	"MyModule/deferpackage"
 	"MyModule/variaveis/tipos"
 )
 
@@ -14,6 +15,8 @@ func main() {
 	sobreTipos()
 	loops.LoopFor()
 	loops.LoopParalelismo()
+	deferpackage.DoDefer()
+	deferpackage.DoDeferVariable()
 }
 
 func sobreFuncoes() {
