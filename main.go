@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"MyModule/loops"
 	"MyModule/funcoes"
 	"MyModule/variaveis"
 	"MyModule/variaveis/tipos"
@@ -11,6 +12,8 @@ func main() {
 	sobreFuncoes()
 	sobreVariaveis()
 	sobreTipos()
+	loops.LoopFor()
+	loops.LoopParalelismo()
 }
 
 func sobreFuncoes() {
