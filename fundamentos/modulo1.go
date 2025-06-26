@@ -2,11 +2,11 @@ package modulo1
 
 import (
 	"fmt"
-	"rocketseat-go/modulo1/loops"
-	"rocketseat-go/modulo1/funcoes"
-	"rocketseat-go/modulo1/variaveis"
-	"rocketseat-go/modulo1/deferpackage"
-	"rocketseat-go/modulo1/variaveis/tipos"
+	"rocketseat-go/fundamentos/loops"
+	"rocketseat-go/fundamentos/funcoes"
+	"rocketseat-go/fundamentos/variaveis"
+	"rocketseat-go/fundamentos/deferpackage"
+	"rocketseat-go/fundamentos/variaveis/tipos"
 )
 
 func Modulo1Main() {
