@@ -14,7 +14,7 @@ var filmesNoDB []string = []string{
 }
 var resultsFromApi []int = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
-func SliceII() {
+func SliceII() []string {
 	var filme string
 	var filmes []string = make([]string, 0, len(resultsFromApi))
 
@@ -22,4 +22,6 @@ func SliceII() {
 		filme = filmesNoDB[value]
 		filmes = append(filmes, filme)
 	}
+
+	return filmes
 }
