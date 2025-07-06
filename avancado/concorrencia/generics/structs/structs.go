@@ -1,4 +1,4 @@
-package concorrencia
+package main
 
 import "fmt"
 
@@ -8,7 +8,7 @@ type NovoTipo[T any] struct {
 
 func (n NovoTipo[T]) FuncCustom() {}
 
-func principal2() {
+func main() {
 	var novoTipo NovoTipo[string] = NovoTipo[string]{}
 	fmt.Println(novoTipo)
 }

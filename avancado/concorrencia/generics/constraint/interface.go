@@ -1,4 +1,4 @@
-package concorrencia
+package main
 
 import "fmt"
 

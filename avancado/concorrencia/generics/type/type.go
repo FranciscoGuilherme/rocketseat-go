@@ -1,4 +1,4 @@
-package concorrencia
+package main
 
 import "fmt"
 
@@ -6,7 +6,7 @@ func foo[T any](arg T) {
 	fmt.Println(arg)
 }
 
-func bar() {
+func main() {
 	foo("Hello, Generics!")
 	foo(42)
 	foo(3.14)
