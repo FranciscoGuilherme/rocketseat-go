@@ -2,6 +2,7 @@
   "conventionalCommits.scopes": [
     "docs",
     "tests",
+    "infra",
     "config",
     "domain",
     "project"
