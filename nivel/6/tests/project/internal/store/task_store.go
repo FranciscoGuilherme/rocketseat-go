@@ -1,14 +1,14 @@
 package store
 
-import "github.com/jackc/pgx/v5/pgtype"
+import "time"
 
 type Task struct {
-	ID          int32              `json:"id"`
+	Id          int32              `json:"id"`
 	Title       string             `json:"title"`
 	Description string             `json:"description"`
 	Priority    int32              `json:"priority"`
-	CreatedAt   pgtype.Timestamptz `json:"created_at"`
-	UpdatedAt   pgtype.Timestamptz `json:"updated_at"`
+	CreatedAt   time.Time          `json:"created_at"`
+	UpdatedAt   time.Time          `json:"updated_at"`
 }
 
 type TaskStore interface {
