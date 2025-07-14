@@ -1,0 +1,115 @@
+package services
+
+import (
+	"rocketseat-go/internal/store"
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
+)
+
+type MockTaskStore struct {}
+
+func (m *MockTaskStore) CreateTask(
+	title,
+	description string,
+	priority int32,
+) (store.Task, error) {
+	return store.Task{
+		Id:          1,
+		Title:       title,
+		Description: description,
+		Priority:    priority,
+		CreatedAt:   time.Now(),
+		UpdatedAt:   time.Now(),
+	}, nil
+}
+
+func (m *MockTaskStore) GetTaskByID(id int32) (store.Task, error) {
+	return store.Task{
+		Id:          id,
+		Title:       "Mock Test Task",
+		Description: "Mock Test Description",
+		Priority:    1,
+		CreatedAt:   time.Now(),
+		UpdatedAt:   time.Now(),
+	}, nil
+}
+
+func (m *MockTaskStore) ListTasks() ([]store.Task, error) {
+	return []store.Task{
+		{
+			Id:          1,
+			Title:       "Mock Test Task",
+			Description: "Mock Test Description",
+			Priority:    1,
+			CreatedAt:   time.Now(),
+			UpdatedAt:   time.Now(),
+		},
+		{
+			Id:          2,
+			Title:       "Mock Test Task 2",
+			Description: "Mock Test Description 2",
+			Priority:    -1,
+			CreatedAt:   time.Now(),
+			UpdatedAt:   time.Now(),
+		},
+	}, nil
+}
+
+func (m *MockTaskStore) UpdateTask(
+	id int32,
+	title string,
+	description string,
+	priority int32,
+) (store.Task, error) {
+	return store.Task{
+		Id:          id,
+		Title:       title,
+		Description: description,
+		Priority:    priority,
+		CreatedAt:   time.Now(),
+		UpdatedAt:   time.Now(),
+	}, nil
+}
+
+func (m *MockTaskStore) DeleteTask(id int32) error {
+	return nil
+}
+
+func TestCreateTask(t *testing.T) {
+	mockStore := MockTaskStore{}
+	taskService := NewTaskService(&mockStore)
+
+	task, err := taskService.CreateTask(
+		"Mock Test Task",
+		"Mock Test Description",
+		1000,
+	)
+	assert.NoError(t, err)
+	assert.Equal(t, "Mock Test Task", task.Title)
+	assert.Equal(t, "Mock Test Description", task.Description)
+	assert.Equal(t, int32(1000), task.Priority)
+}
+
+func TestGetTaskByID(t *testing.T) {
+	mockStore := MockTaskStore{}
+	taskService := NewTaskService(&mockStore)
+
+	task, err := taskService.GetTaskByID(1)
+	assert.NoError(t, err)
+	assert.Equal(t, int32(1), task.Id)
+	assert.Equal(t, "Mock Test Task", task.Title)
+	assert.Equal(t, "Mock Test Description", task.Description)
+}
+
+func TestListTasks(t *testing.T) {
+	mockStore := MockTaskStore{}
+	taskService := NewTaskService(&mockStore)
+
+	tasks, err := taskService.ListTasks()
+	assert.NoError(t, err)
+	assert.Len(t, tasks, 2)
+	assert.Equal(t, "Mock Test Task", tasks[0].Title)
+	assert.Equal(t, "Mock Test Task 2", tasks[1].Title)
+}
