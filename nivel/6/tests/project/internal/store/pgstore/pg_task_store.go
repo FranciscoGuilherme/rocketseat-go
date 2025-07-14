@@ -13,3 +13,27 @@ func NewPGTaskStore(pool *pgxpool.Pool) PGTaskStore {
 		Pool:    pool,
 	}
 }
+
+func (store *PGTaskStore) CreateTask(
+	title,
+	description string,
+	priority int,
+) error {
+	panic("Implement CreateTask method")
+}
+
+func (store *PGTaskStore) GetTaskByID(id int) (Task, error) {
+	panic("Implement GetTaskByID method")
+}
+
+func (store *PGTaskStore) UpdateTask(task Task) error {
+	panic("Implement UpdateTask method")
+}
+
+func (store *PGTaskStore) DeleteTask(id int) error {
+	panic("Implement DeleteTask method")
+}
+
+func (store *PGTaskStore) ListTasks() ([]Task, error) {
+	panic("Implement ListTasks method")
+}
