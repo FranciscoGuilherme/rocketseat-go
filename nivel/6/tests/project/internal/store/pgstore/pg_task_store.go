@@ -1,6 +1,11 @@
 package pgstore
 
-import "github.com/jackc/pgx/v5/pgxpool"
+import (
+	"context"
+	"rocketseat-go/internal/store"
+
+	"github.com/jackc/pgx/v5/pgxpool"
+)
 
 type PGTaskStore struct {
 	Queries *Queries
@@ -14,22 +19,41 @@ func NewPGTaskStore(pool *pgxpool.Pool) PGTaskStore {
 	}
 }
 
-func (pgtaskstore *PGTaskStore) CreateTask(title, description string, priority int) error {
-	panic("Implement CreateTask method")
+func (pgs *PGTaskStore) CreateTask(
+	ctx context.Context,
+	title, description string,
+	priority int32,
+) (store.Task, error) {
+	task, err := pgs.Queries.CreateTask(ctx, CreateTaskParams{
+		Title:       title,
+		Description: description,
+		Priority:    priority,
+	})
+	if err != nil {
+		return store.Task{}, err
+	}
+	return store.Task{
+		Id:          task.ID,
+		Title:       task.Title,
+		Description: task.Description,
+		Priority:    task.Priority,
+		CreatedAt:   task.CreatedAt.Time,
+		UpdatedAt:   task.UpdatedAt.Time,
+	}, nil
 }
 
-func (pgtaskstore *PGTaskStore) GetTaskByID(id int) (Task, error) {
+func (pgs *PGTaskStore) GetTaskByID(ctx context.Context, id int) (Task, error) {
 	panic("Implement GetTaskByID method")
 }
 
-func (pgtaskstore *PGTaskStore) UpdateTask(task Task) error {
+func (pgs *PGTaskStore) UpdateTask(ctx context.Context, task Task) error {
 	panic("Implement UpdateTask method")
 }
 
-func (pgtaskstore *PGTaskStore) DeleteTask(id int) error {
+func (pgs *PGTaskStore) DeleteTask(ctx context.Context, id int) error {
 	panic("Implement DeleteTask method")
 }
 
-func (pgtaskstore *PGTaskStore) ListTasks() ([]Task, error) {
+func (pgs *PGTaskStore) ListTasks(ctx context.Context) ([]Task, error) {
 	panic("Implement ListTasks method")
 }
