@@ -1,4 +1,18 @@
 {
   "printWidth": 80,
-  "singleQuote": false
+  "singleQuote": false,
+  "overrides": [
+    {
+      "files": ["*.json", ".prettierrc"],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": "*.yaml",
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
 }
