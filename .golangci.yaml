@@ -1,0 +1,4 @@
+version: 2
+
+golines:
+  max-line-length: 80
