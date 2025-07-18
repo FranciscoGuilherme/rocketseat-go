@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-type MockTaskStore struct {}
+type MockTaskStore struct{}
 
 func (m *MockTaskStore) CreateTask(
 	title,

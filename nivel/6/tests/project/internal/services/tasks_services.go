@@ -40,8 +40,7 @@ func (s *TaskService) ListTasks() ([]store.Task, error) {
 
 func (s *TaskService) UpdateTask(
 	id int32,
-	title,
-	description string,
+	title, description string,
 	priority int32,
 ) (store.Task, error) {
 	task, err := s.Store.UpdateTask(id, title, description, priority)

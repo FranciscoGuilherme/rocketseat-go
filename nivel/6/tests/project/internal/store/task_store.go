@@ -3,12 +3,12 @@ package store
 import "time"
 
 type Task struct {
-	Id          int32              `json:"id"`
-	Title       string             `json:"title"`
-	Description string             `json:"description"`
-	Priority    int32              `json:"priority"`
-	CreatedAt   time.Time          `json:"created_at"`
-	UpdatedAt   time.Time          `json:"updated_at"`
+	Id          int32     `json:"id"`
+	Title       string    `json:"title"`
+	Description string    `json:"description"`
+	Priority    int32     `json:"priority"`
+	CreatedAt   time.Time `json:"created_at"`
+	UpdatedAt   time.Time `json:"updated_at"`
 }
 
 type TaskStore interface {
