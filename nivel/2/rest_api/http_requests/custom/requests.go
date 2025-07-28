@@ -22,7 +22,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err := resp.Body.Close(); err != nil {
+			fmt.Printf("error closing response body: %v", err)
+		}
+	}()
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
@@ -36,7 +40,7 @@ func main() {
 
 func createContext() {
 	ctx := context.Background()
-	ctx, cancel := context.WithTimeout(ctx, 5 * time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
 
 	req, err := http.NewRequestWithContext(
@@ -57,7 +61,11 @@ func createContext() {
 	if err != nil {
 		panic(err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err := resp.Body.Close(); err != nil {
+			fmt.Printf("error closing response body: %v", err)
+		}
+	}()
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
